@@ -70,7 +70,7 @@ exports.updateProduct = catchAsync(async (req, res, next) => {
 
     const updatedProduct = await Product.findByIdAndUpdate(
         productId,
-        { productName, description, category, price, inStock, images },
+        { productName, description, category, price, inStock, images, size },
         { new: true }
     );
     if (!updatedProduct) {
