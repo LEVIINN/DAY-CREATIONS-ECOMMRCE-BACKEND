@@ -101,3 +101,38 @@ exports.deleteProduct = catchAsync(async (req, res, next) => {
         null
     );
 });
+
+exports.getProductsByCategory = catchAsync(async (req, res, next) => {
+    const { category } = req.params;
+    const products = await Product.find({ category });
+    if (!products.length) {
+        return next(new AppError('No products found for this category', 404));
+    }
+    return ApiResponse(
+        200,
+        res,
+        'Products fetched successfully',
+        'success',
+        products
+    );
+});
+
+exports.searchProducts = catchAsync(async (req, res, next) => {
+    const { query } = req.query;
+    const products = await Product.find({
+        $or: [
+            { productName: new RegExp(query, 'i') },
+            { category: new RegExp(query, 'i') },
+        ],
+    });
+    if (!products.length) {
+        return next(new AppError('No products found matching the query', 404));
+    }
+    return ApiResponse(
+        200,
+        res,
+        'Products fetched successfully',
+        'success',
+        products
+    );
+});
