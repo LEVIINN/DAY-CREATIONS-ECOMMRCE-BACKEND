@@ -1,6 +1,6 @@
 const { ApiResponse } = require('../helpers/responseHelper');
 const catchAsync = require('../utils/catchAsync');
-const Product = require('../models/productModel');
+const Product = require('../models/product');
 const AppError = require('../utils/appError');
 
 exports.createProduct = catchAsync(async (req, res, next) => {

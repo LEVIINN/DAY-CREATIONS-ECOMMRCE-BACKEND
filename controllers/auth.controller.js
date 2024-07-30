@@ -1,8 +1,8 @@
 const catchAsync = require('../utils/catchAsync');
-const User = require('../models/userModel');
+const User = require('../models/user');
 const { createSendToken } = require('../utils/createToken');
 const AppError = require('../utils/appError');
-const {ApiResponse} = require('../helpers/responseHelper');
+const { ApiResponse } = require('../helpers/responseHelper');
 
 exports.registerUser = catchAsync(async (req, res, next) => {
     const { userName, password, email, confirmPassword } = req.body;

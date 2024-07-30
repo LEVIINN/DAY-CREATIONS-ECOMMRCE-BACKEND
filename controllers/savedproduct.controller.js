@@ -1,5 +1,5 @@
 const catchAsync = require('../utils/catchAsync');
-const SavedProduct = require('../models/savedProductModel');
+const SavedProduct = require('../models/savedproduct');
 const AppError = require('../utils/appError');
 const { ApiResponse } = require('../helpers/responseHelper');
 
