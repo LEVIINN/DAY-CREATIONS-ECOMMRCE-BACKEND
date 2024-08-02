@@ -7,7 +7,7 @@ const routes = require('./routes/index');
 
 const app = express();
 const corsOptions = {
-    origin: ['http://localhost:3000'],
+    origin: ['http://localhost:3000','http://localhost:3001'],
     optionSuccessStatus: 200,
     credentials: true,
 };
