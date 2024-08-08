@@ -4,8 +4,17 @@ const Product = require('../models/product');
 const AppError = require('../utils/appError');
 
 exports.createProduct = catchAsync(async (req, res, next) => {
-    const { productName, description, category, price, inStock, images, size } =
-        req.body;
+    const {
+        productName,
+        description,
+        category,
+        NGNPrice,
+        USDPrice,
+        GBPPrice,
+        inStock,
+        images,
+        size,
+    } = req.body;
 
     const existingProduct = await Product.findOne({ productName });
 
@@ -17,7 +26,9 @@ exports.createProduct = catchAsync(async (req, res, next) => {
         productName,
         description,
         category,
-        price,
+        NGNPrice,
+        USDPrice,
+        GBPPrice,
         inStock,
         images,
         size,
@@ -65,12 +76,31 @@ exports.getAllProducts = catchAsync(async (req, res, next) => {
 
 exports.updateProduct = catchAsync(async (req, res, next) => {
     const { productId } = req.params;
-    const { productName, description, category, price, inStock, images, size } =
-        req.body;
+    const {
+        productName,
+        description,
+        category,
+        NGNPrice,
+        USDPrice,
+        GBPPrice,
+        inStock,
+        images,
+        size,
+    } = req.body;
 
     const updatedProduct = await Product.findByIdAndUpdate(
         productId,
-        { productName, description, category, price, inStock, images, size },
+        {
+            productName,
+            description,
+            category,
+            NGNPrice,
+            USDPrice,
+            GBPPrice,
+            inStock,
+            images,
+            size,
+        },
         { new: true }
     );
     if (!updatedProduct) {

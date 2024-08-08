@@ -13,7 +13,15 @@ const productSchema = new mongoose.Schema({
         type: [String],
         required: true,
     },
-    price: {
+    NGNPrice: {
+        type: Number,
+        required: true,
+    },
+    USDPrice: {
+        type: Number,
+        required: true,
+    },
+    GBPPrice: {
         type: Number,
         required: true,
     },

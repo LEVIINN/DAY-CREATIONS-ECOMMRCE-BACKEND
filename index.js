@@ -7,7 +7,10 @@ const routes = require('./routes/index');
 
 const app = express();
 const corsOptions = {
-    origin: ['http://localhost:3000','http://localhost:3001'],
+    origin: [
+        'http://localhost:3000',
+        'https://day-creations-ecommerce-admin.vercel.app/',
+    ],
     optionSuccessStatus: 200,
     credentials: true,
 };
